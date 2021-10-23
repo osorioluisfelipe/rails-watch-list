@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row justify-content-center">
+  <h1>New List</h1>
+  </div>
+  <div class="row justify-content-center">
+    <%= render "form", list: @list %>
+  </div>
+  <br>
+  <div class="row justify-content-center">
+    <p><%= link_to 'Back to list', lists_path, class: 'btn btn-primary' %></p>
+  </div>
+</div>
