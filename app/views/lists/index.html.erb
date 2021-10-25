@@ -18,7 +18,7 @@
           <% if File.file?("app/assets/images/#{list.name.downcase}.jpg") %>
             <%= image_tag "#{list.name.downcase}.jpg", alt: "#{list.name}-list", class: "card-img-top", style: "width:100%" %>
           <% else %>
-            <%= image_tag "https://source.unsplash.com/1600x900/?#{list.name.downcase}&movie", alt: "#{list.name}-list", class: "card-img-top", style: "width:100%" %>
+            <%= image_tag "https://source.unsplash.com/1024x768/?#{list.name.downcase},movies", alt: "#{list.name}-list", class: "card-img-top", style: "width:100%" %>
           <% end %>
           <div class="card-img-overlay d-flex justify-content-center align-items-center">
             <h3 class="card-title"><%= link_to "#{list.name}", list_path(list) %></h3>

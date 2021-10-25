@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "https://source.unsplash.com/1600x900/?movies,#{@list.name.downcase}"%>);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "https://source.unsplash.com/1600x900/?#{@list.name.downcase},movies"%>);">
   <div class="container">
     <h1 class='d-flex justify-content-center'><%= @list.name.capitalize %></h1>
   </div>
