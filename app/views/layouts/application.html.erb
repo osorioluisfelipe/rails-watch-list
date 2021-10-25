@@ -13,7 +13,39 @@
   </head>
 
   <body>
-    
-    <%= yield %>
+    <div class="d-block">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+          <%= image_tag "popcorn-soda-movie.png", alt: "app-icon", class: 'bg-transparent', width:'50', height: '50'%>
+        </a>
+        <a class="navbar-brand" href="/">Watch List</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/">My Lists</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/lists/new">New List</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class='body'>
+        <%= yield %>
+      </div>
+      <div class="footer">
+        <div class="footer-links">
+          <a href="https://github.com/osorioluisfelipe"><i class="fab fa-github"></i></a>
+          <a href="https://www.instagram.com/osorio_luisfelipe/"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/luisfelipebaumotteosorio/"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div class="footer-copyright">
+          This was developed with <i class="fas fa-heart"></i> by Luis Felipe
+        </div>
+      </div>
+    </div>
   </body>
 </html>

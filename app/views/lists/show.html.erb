@@ -1,23 +1,41 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "https://source.unsplash.com/1600x900/?movies,#{@list.name.downcase}"%>);">
+  <div class="container">
+    <h1 class='d-flex justify-content-center'><%= @list.name.capitalize %></h1>
+  </div>
+</div>
 <div class="container">
-  <h1><%= @list.name %></h1>
-  <div class="row row-cols-3 row-cols-md-3">
+  <br>
+  <div class="row row-cols-3 row-cols-md-3 bg-gradient-dark">
   <% @list.bookmarks.each do |bookmark|%>
     <div class="col mb-4">
-      <div class="card">
-        <img src="https://image.tmdb.org/t/p/w300<%= bookmark.movie.poster_url %>" class="card-img-top" alt="movie-poster">
-        <div class="card-body">
-          <h5 class="card-title"><%= bookmark.movie.title %> ⭐ <%= bookmark.movie.rating %></h5>
-          <p class="card-text"><%= bookmark.movie.overview %></p>
-        </div>
-        <div class="card-footer">
-          <h5 class="card-text"><i class="fas fa-quote-left"></i> <%= bookmark.comment %></h5>
+      <div class="shadow mb-3">
+        <div class="card">
+          <img src="https://image.tmdb.org/t/p/w300<%= bookmark.movie.poster_url %>" class="card-img-top" alt="movie-poster">
+          <div class="card-body">
+            <h5 class="card-title"><%= bookmark.movie.title %> ⭐ <%= bookmark.movie.rating %></h5>
+            <p class="card-text"><%= bookmark.movie.overview %></p>
+          </div>
+          <div class="card-footer d-flex">
+            <h6 class="card-text col"><i class="fas fa-quote-left"></i> <%= bookmark.comment %></h6>
+            <h6 class="card-text col-end"><%= link_to 'Delete', bookmark_path([bookmark]), method: :delete, data: { confirm: "Are you sure?"} %></h6>
+          </div>
         </div>
       </div>
     </div>
   <% end %>
   </div>
-
-  <p><%= link_to 'Back to lists', lists_path, class: "btn btn-primary" %></p>
   <br>
-  <p><%= link_to 'Add Movie', new_list_bookmark_path(params[:id]), class: "btn btn-primary" %></p>
+  <div>
+    <div class="container">
+      <h1>New Bookmark</h1>
+      <div class="form">
+        <%= simple_form_for [@list, @bookmark] do |f| %>
+          <%= f.input :comment, placeholder: 'Enter a comment about the movie' %>
+          <%= f.association :movie, prompt: 'Select a movie', input_html: { class: 'select2' } %>
+          <%= f.submit class: 'btn btn-flat' %>
+        <% end %>
+      </div>
+    </div>
+    <br>
+  </div>
 </div>
