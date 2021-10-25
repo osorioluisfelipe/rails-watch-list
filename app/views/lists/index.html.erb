@@ -15,7 +15,9 @@
     <div class="col mb-4 d-flex justify-content-center">
       <div class="shadow mb-3 bg-white rounded">
         <div class="card img-fluid" style="width:500px">
-          <% if File.file?("app/assets/images/#{list.name.downcase}.jpg") %>
+          <% if list.photo.attached?%>
+            <%= cl_image_tag list.photo.key, class: "card-img-top", style: "width:100%" %>
+          <% elsif File.file?("app/assets/images/#{list.name.downcase}.jpg") %>
             <%= image_tag "#{list.name.downcase}.jpg", alt: "#{list.name}-list", class: "card-img-top", style: "width:100%" %>
           <% else %>
             <%= image_tag "https://source.unsplash.com/1024x768/?#{list.name.downcase},movies", alt: "#{list.name}-list", class: "card-img-top", style: "width:100%" %>
