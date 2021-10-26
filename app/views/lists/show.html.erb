@@ -1,17 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
-url(
-  <% if @list.photo.attached? %>
-    <%= cl_image_path @list.photo.key %>
-  <% elsif %>
-    <%= image_path "#{@list.name.downcase}.jpg" %>
-  <% else %>
-    <%= image_path "https://source.unsplash.com/1600x900/?#{@list.name.downcase},movies"%>
-  <% end %>
-  );">
-  <div class="container">
-    <h1 class='d-flex justify-content-center'><%= @list.name.capitalize %></h1>
-  </div>
-</div>
+<%= render "shared/show_hero_banner", list: @list %>
 <div class="container">
   <br>
   <div class="row row-cols-3 row-cols-md-3 bg-gradient-dark">
